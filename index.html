@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mario Pulido Gómez — Cantante e Imitador de Raphael. Portafolio artístico y musical." />
+  <meta name="theme-color" content="#1A0E0A" />
+  <title>Mario Pulido Gómez · Cantante e Imitador de Raphael</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #E8E0D4;
+      background: #0A0705;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #D4A017;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #F5E6C8;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: rgba(232,224,212,0.55);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .section-title { font-size: 1.75rem; }
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: background 0.4s;
+    }
+    .navbar.scrolled {
+      background: rgba(10,7,5,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.10);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-left { display: flex; align-items: center; gap: 36px; }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #F5E6C8;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: #D4A017; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(232,224,212,0.6);
+      transition: color 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -4px;
+      height: 2px;
+      background: linear-gradient(90deg, #D4A017, #F5D060);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .nav-links a:hover { color: #D4A017; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: linear-gradient(135deg, #D4A017, #C4950A);
+      color: #1A0E0A !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(212,160,23,0.4); }
+    .nav-toggle {
+      display: none;
+      background: none; border: none;
+      cursor: pointer; padding: 8px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: #F5E6C8; margin: 5px 0;
+      border-radius: 2px; transition: 0.3s;
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex !important;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(10,7,5,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column; padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(212,160,23,0.10);
+      }
+      .nav-toggle { display: block; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(180deg, #0A0705 0%, #1A0E0A 30%, #2A180E 60%, #1A0E0A 100%);
+      color: #F5E6C8;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 900px 700px at 15% 20%, rgba(212,160,23,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 700px 900px at 80% 30%, rgba(245,208,96,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 600px 600px at 50% 70%, rgba(180,130,40,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 500px at 30% 60%, rgba(212,160,23,0.04) 0%, transparent 60%);
+      pointer-events: none;
+      animation: hero-orb 20s ease-in-out infinite alternate;
+      will-change: transform, opacity;
+    }
+    @keyframes hero-orb {
+      0%   { transform: scale(1) translate(0, 0); opacity: 0.4; }
+      25%  { transform: scale(1.08) translate(2%, -1.5%); opacity: 0.7; }
+      50%  { transform: scale(0.92) translate(-1.5%, 1.5%); opacity: 0.4; }
+      75%  { transform: scale(1.05) translate(-0.5%, -1.2%); opacity: 0.6; }
+      100% { transform: scale(1.02) translate(0.8%, 0.8%); opacity: 0.5; }
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(212,160,23,0.04) 1px, transparent 0);
+      background-size: 48px 48px;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,160,23,0.12);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 96px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(212,160,23,0.15);
+      color: #D4A017;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #D4A017;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #D4A017, #F5D060, #E8C040);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(232,224,212,0.7);
+      font-weight: 400;
+      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: rgba(232,224,212,0.6);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #D4A017, #C4950A);
+      color: #1A0E0A;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 8px 24px rgba(212,160,23,0.35);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #F5E6C8;
+      border: 2px solid rgba(212,160,23,0.3);
+    }
+    .btn-outline:hover {
+      border-color: #D4A017;
+      background: rgba(212,160,23,0.08);
+      transform: translateY(-2px);
+    }
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+    .hero-avatar {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 3px solid rgba(212,160,23,0.25);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(212,160,23,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-avatar-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,160,23,0.2);
+      animation: spin 14s linear infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 36px;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #D4A017;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(232,224,212,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .hero-tagline { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-avatar { width: 220px; height: 220px; }
+    }
+
+    /* ===== BIOGRAPHY ===== */
+    .bio-section { background: #0A0705; }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .bio-image {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bio-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    .bio-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 60px rgba(212,160,23,0.10);
+    }
+    .bio-text p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: rgba(232,224,212,0.7);
+      margin-bottom: 20px;
+    }
+    .bio-text p strong {
+      color: #D4A017;
+      font-weight: 600;
+    }
+    .bio-highlight {
+      background: rgba(212,160,23,0.06);
+      border-left: 3px solid #D4A017;
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 24px;
+    }
+    .bio-highlight p {
+      margin-bottom: 0;
+      color: rgba(232,224,212,0.8);
+      font-style: italic;
+    }
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 40px; }
+      .bio-image { order: -1; }
+      .bio-image img { height: 300px; }
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-section { background: linear-gradient(180deg, #0A0705 0%, #120C08 100%); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      border: 1px solid rgba(212,160,23,0.10);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #1A0E0A;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,160,23,0.3);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,7,5,0.9) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+    }
+    .gallery-card:hover .gallery-card-overlay {
+      opacity: 1;
+    }
+    .gallery-card-overlay .gallery-card-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #D4A017;
+    }
+    .gallery-card-overlay .gallery-card-desc {
+      font-size: 0.8rem;
+      color: rgba(232,224,212,0.6);
+    }
+    .gallery-card.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+      min-height: 400px;
+    }
+
+    /* ===== REPERTOIRE ===== */
+    .repertoire-section { background: #0A0705; }
+    .repertoire-intro {
+      font-size: 1.05rem;
+      color: rgba(232,224,212,0.6);
+      max-width: 700px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .repertoire-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .repertoire-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,160,23,0.08);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .repertoire-card:hover {
+      background: rgba(212,160,23,0.05);
+      border-color: rgba(212,160,23,0.2);
+      transform: translateY(-3px);
+    }
+    .repertoire-card .song-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #D4A017;
+    }
+    .repertoire-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #F5E6C8;
+      margin-bottom: 6px;
+    }
+    .repertoire-card p {
+      font-size: 0.85rem;
+      color: rgba(232,224,212,0.5);
+      line-height: 1.5;
+    }
+
+    /* ===== VIDEO ===== */
+    .video-section {
+      background: linear-gradient(180deg, #120C08 0%, #0A0705 100%);
+    }
+    .video-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(212,160,23,0.10);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .video-caption {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: rgba(232,224,212,0.5);
+    }
+    .video-caption a {
+      color: #D4A017;
+      transition: opacity 0.2s;
+    }
+    .video-caption a:hover { opacity: 0.7; }
+
+    /* ===== VIDEO GRID ===== */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .video-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(212,160,23,0.08);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.3s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212,160,23,0.2);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .video-card-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .video-card-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+    .video-card-title {
+      text-align: center;
+      padding: 12px 16px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #D4A017;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== RAPHAEL TRIBUTE ===== */
+    .tribute-section {
+      background: linear-gradient(135deg, #0A0705 0%, #1A0E0A 50%, #0A0705 100%);
+      border-top: 1px solid rgba(212,160,23,0.06);
+      border-bottom: 1px solid rgba(212,160,23,0.06);
+    }
+    .tribute-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .tribute-content .quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: rgba(232,224,212,0.8);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .tribute-content .quote-author {
+      font-size: 0.9rem;
+      color: #D4A017;
+      font-weight: 500;
+    }
+    .tribute-content p {
+      font-size: 1rem;
+      color: rgba(232,224,212,0.55);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .tribute-content .tribute-highlight {
+      color: #D4A017;
+      font-weight: 600;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: linear-gradient(135deg, #1A0E0A 0%, #2A180E 50%, #1A0E0A 100%);
+    }
+    .contact-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-inner .section-title { color: #F5E6C8; }
+    .contact-inner .section-subtitle { color: rgba(232,224,212,0.5); margin-left: auto; margin-right: auto; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212,160,23,0.12);
+      padding: 20px 28px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s;
+      min-width: 180px;
+    }
+    .contact-card:hover {
+      background: rgba(212,160,23,0.10);
+      transform: translateY(-3px);
+      border-color: rgba(212,160,23,0.25);
+    }
+    .contact-card-icon { font-size: 1.3rem; }
+    .contact-card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(232,224,212,0.4);
+    }
+    .contact-card-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #F5E6C8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0A0705;
+      color: rgba(232,224,212,0.3);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(212,160,23,0.06);
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      cursor: pointer;
+      padding: 40px;
+    }
+    .lightbox-overlay.open { opacity: 1; visibility: visible; }
+    .lightbox-overlay .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212,160,23,0.15);
+      border: none;
+      color: #D4A017;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s ease, transform 0.25s ease;
+      z-index: 10001;
+    }
+    .lightbox-overlay .lightbox-close:hover {
+      background: rgba(212,160,23,0.3);
+      transform: scale(1.1);
+    }
+    .lightbox-overlay .lightbox-image-wrapper {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      cursor: default;
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .lightbox-overlay.open .lightbox-image-wrapper { transform: scale(1); }
+    .lightbox-overlay .lightbox-image-wrapper img {
+      display: block;
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .lightbox-overlay .lightbox-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,7,5,0.9));
+      color: #F5E6C8;
+      padding: 32px 20px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-card.featured { grid-column: span 2; grid-row: span 1; min-height: 280px; }
+      .repertoire-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card.featured { grid-column: span 1; }
+      .repertoire-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+      .hero::before { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <a href="#" class="nav-logo">Mario <span>·</span> Voz</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#bio">Biografía</a>
+          <a href="#gallery">Galería</a>
+          <a href="#repertoire">Repertorio</a>
+          <a href="#videos">Videos</a>
+          <a href="#contact" class="nav-cta">Contratar</a>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Cantante en vivo
+        </div>
+        <p class="hero-subtitle">El Divo de Colombia</p>
+        <h1>Mario Pulido<br/><span class="highlight">Gómez</span></h1>
+        <p class="hero-tagline">
+          Cantante e imitador profesional de <strong style="color:#D4A017;">Raphael</strong>, con una voz 
+          y presencia escénica que rinden homenaje al legendario artista español. 
+          Más de 10 años de experiencia emocionando al público.
+        </p>
+        <div class="hero-actions">
+          <a href="#videos" class="btn btn-primary">🎤 Ver actuación</a>
+          <a href="#contact" class="btn btn-outline">Contratar para evento</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">10+</div>
+            <div class="hero-stat-label">Años de experiencia</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100+</div>
+            <div class="hero-stat-label">Presentaciones</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">🎤</div>
+            <div class="hero-stat-label">Imitador de Raphael</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-avatar">
+          <div class="hero-avatar-ring"></div>          <img src="Imagen Padre/Mario cantante.jpeg" alt="Mario Pulido Gómez — Cantante" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BIOGRAFÍA ===== -->
+  <section class="section bio-section" id="bio">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Biografía</span>
+        <h2 class="section-title">El arte de la imitación</h2>
+      </div>
+      <div class="bio-grid fade-up">
+        <div class="bio-image">          <img src="Imagen Padre/Mario cantante.jpeg" alt="Mario Pulido - Actuación" 
+               onerror="this.remove();var p=this.parentElement;p.style.cssText='background:linear-gradient(135deg,#2A180E,#1A0E0A);display:flex;align-items:center;justify-content:center;height:450px';var s=document.createElement('span');s.textContent='🎭';s.style.cssText='font-size:5rem;color:rgba(212,160,23,0.15)';p.appendChild(s)"/>
+        </div>
+        <div class="bio-text">
+          <p>
+            <strong>Mario Pulido Gómez</strong> es un cantante colombiano reconocido por su 
+            extraordinaria capacidad para interpretar e imitar a <strong>Raphael</strong>, 
+            el legendario "Divo de Linares". Con una voz potente y un carisma escénico 
+            innegable, Mario ha llevado la magia de las canciones más emblemáticas de 
+            Raphael a escenarios de todo tipo: teatros, eventos privados, festivales y 
+            programas de televisión.
+          </p>
+          <p>
+            Su dedicación al arte de la imitación va más allá de lo vocal — Mario estudia 
+            y reproduce con fidelidad los gestos, la intensidad emocional y la presencia 
+            escénica que han hecho de Raphael una leyenda viva de la música en español. 
+            Cada presentación es un viaje nostálgico a través de los grandes éxitos que 
+            marcaron generaciones.
+          </p>
+          <div class="bio-highlight">
+            <p>
+              "No solo canto las canciones de Raphael — vivo cada nota, cada silencio, 
+              cada mirada. Mi objetivo es que el público cierre los ojos y sienta que 
+              está frente al Divo, reviviendo la emoción de sus grandes interpretaciones."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALERÍA ===== -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Galería</span>
+        <h2 class="section-title">Momentos sobre el escenario</h2>
+        <p class="section-subtitle">Imágenes que capturan la pasión y el arte de cada presentación.</p>
+      </div>
+      <div class="gallery-grid fade-up">
+
+        <div class="gallery-card featured">          <img src="https://images.unsplash.com/photo-1533174077407-6c1d92ba7d24?auto=format&fit=crop&w=800&h=600&q=80" alt="Concierto en vivo" loading="lazy"
+               onerror="this.remove();var p=this.parentElement;p.style.background='linear-gradient(135deg,#1A0E0A,#2A180E)';var s=document.createElement('span');s.textContent='🎤';s.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;color:rgba(212,160,23,0.12)';p.appendChild(s)"/>
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-label">✨ Concierto en vivo</span>
+            <span class="gallery-card-desc">Interpretando los grandes éxitos de Raphael</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">          <img src="https://images.unsplash.com/photo-1516323216109-56b3c06b8e0d?auto=format&fit=crop&w=400&h=300&q=80" alt="Micrófono - Actuación" loading="lazy"
+               onerror="this.remove();var p=this.parentElement;p.style.background='linear-gradient(135deg,#2A180E,#1A0E0A)';var s=document.createElement('span');s.textContent='🎙️';s.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(212,160,23,0.12)';p.appendChild(s)"/>
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-label">🎙️ La voz del Divo</span>
+            <span class="gallery-card-desc">Potencia vocal y sentimiento</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=400&h=300&q=80" alt="Escenario teatral" loading="lazy"
+               onerror="this.remove();var p=this.parentElement;p.style.background='linear-gradient(135deg,#1A0E0A,#2A180E)';var s=document.createElement('span');s.textContent='🎭';s.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(212,160,23,0.12)';p.appendChild(s)"/>
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-label">🎭 Presencia escénica</span>
+            <span class="gallery-card-desc">Emoción y carisma en el escenario</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">          <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=400&h=300&q=80" alt="Concierto - Público" loading="lazy"
+               onerror="this.remove();var p=this.parentElement;p.style.background='linear-gradient(135deg,#2A180E,#1A0E0A)';var s=document.createElement('span');s.textContent='🎶';s.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(212,160,23,0.12)';p.appendChild(s)"/>
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-label">🎶 Noche de boleros</span>
+            <span class="gallery-card-desc">El público vibra con cada canción</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">          <img src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=400&h=300&q=80" alt="Foco de luz - Teatro" loading="lazy"
+               onerror="this.remove();var p=this.parentElement;p.style.background='linear-gradient(135deg,#1A0E0A,#2A180E)';var s=document.createElement('span');s.textContent='🌟';s.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(212,160,23,0.12)';p.appendChild(s)"/>
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-label">🌟 Bajo los reflectores</span>
+            <span class="gallery-card-desc">La magia del directo</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REPERTORIO ===== -->
+  <section class="section repertoire-section" id="repertoire">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Repertorio</span>
+        <h2 class="section-title">Canciones emblemáticas de Raphael</h2>
+        <p class="repertoire-intro">
+          Mario interpreta los grandes clásicos de Raphael con una fidelidad y entrega que 
+          transportan al público a la época dorada de la canción romántica española. 
+          Aquí algunos de los temas que forman parte de su repertorio:
+        </p>
+      </div>
+      <div class="repertoire-grid fade-up">
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Yo soy aquél</h3>
+          <p>El himno que Raphael llevó a Eurovisión en 1966. Una declaración de identidad musical.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Mi gran noche</h3>
+          <p>Un clásico inolvidable que habla del amor a primera vista en una noche mágica.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Qué sabe nadie</h3>
+          <p>Balada intensa sobre el amor y el desamor, una de las más emblemáticas del Divo.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Escándalo</h3>
+          <p>Tema que desafía los convencionalismos sociales con la fuerza interpretativa de Raphael.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Hablemos del amor</h3>
+          <p>Canción presentada en Eurovisión 1967, una oda al amor en todas sus formas.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Digan lo que digan</h3>
+          <p>Tema lleno de fuerza que habla de la perseverancia ante la crítica y la adversidad.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Yo no soy ese</h3>
+          <p>Canción melódica con una interpretación cargada de emoción y dramatismo.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Provocación</h3>
+          <p>Tema apasionado que muestra la versatilidad vocal y expresiva de Raphael.</p>
+        </div>
+
+        <div class="repertoire-card">
+          <div class="song-icon">🎵</div>
+          <h3>Y... más canciones</h3>
+          <p>Repertorio amplio adaptable a todo tipo de eventos: bodas, galas, fiestas y teatros.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRIBUTO A RAPHAEL ===== -->
+  <section class="section tribute-section">
+    <div class="container">
+      <div class="tribute-content fade-up">
+        <div class="quote">
+          "Raphael es el Divo de Linares, una leyenda viva de la música en español. 
+          Interpretar sus canciones es un honor y una responsabilidad que asumo con 
+          el mayor respeto y pasión."
+        </div>
+        <p class="quote-author">— Mario Pulido Gómez</p>
+        <p style="margin-top:32px;">
+          <span class="tribute-highlight">Raphael</span> (Miguel Rafael Martos Sánchez), 
+          nacido el 5 de mayo de 1943 en Linares, España, es uno de los artistas más 
+          icónicos y longevos de la música hispana. Con más de 60 años de carrera, 
+          ha vendido millones de discos y ha sido galardonado como 
+          <span class="tribute-highlight">Persona del Año</span> por los Latin Grammy en 2025. 
+          Su legado incluye canciones inmortales que Mario Pulido interpreta con 
+          fidelidad y devoción, manteniendo viva la esencia del Divo en cada presentación.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section class="section video-section" id="videos">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Videos</span>
+        <h2 class="section-title">Mario interpreta a Raphael</h2>
+        <p class="section-subtitle">Las mejores interpretaciones de Mario Pulido Gómez imitando al Divo de Linares.</p>
+      </div>
+
+      <!-- Featured: Yo me Llamo audition -->
+      <div class="video-wrapper fade-up">
+        <iframe src="https://www.youtube.com/embed/OU-Stf4I2LM" 
+                title="Mario Pulido Gómez - Audición Yo me Llamo Raphael"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption" style="margin-bottom:48px;">
+        🎥 Audición en <a href="https://www.youtube.com/@MarioPulidoG%C3%B3mez" target="_blank" rel="noopener">Yo me Llamo</a> — Caracol Televisión
+      </p>
+
+      <!-- Video Grid: 5 canciones solicitadas -->
+      <div class="video-grid fade-up">
+        <div class="video-card">
+          <div class="video-card-wrapper">
+            <iframe src="https://www.youtube.com/embed/kKbxeAHBfWo" 
+                    title="Comiénzame a Vivir - Mario Pulido Gómez"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-card-title">Comiénzame a Vivir</p>
+        </div>
+        <div class="video-card">
+          <div class="video-card-wrapper">
+            <iframe src="https://www.youtube.com/embed/KKSmZnRcZbY" 
+                    title="Cierro mis Ojos - Mario Pulido Gómez"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-card-title">Cierro mis Ojos</p>
+        </div>
+        <div class="video-card">
+          <div class="video-card-wrapper">
+            <iframe src="https://www.youtube.com/embed/csUDAHDTACg" 
+                    title="Llorona - Mario Pulido Gómez"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-card-title">Llorona</p>
+        </div>
+        <div class="video-card">
+          <div class="video-card-wrapper">
+            <iframe src="https://www.youtube.com/embed/M1uNSwuvjjg" 
+                    title="Acá Entre Nos - Mario Pulido Gómez"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-card-title">Acá Entre Nos</p>
+        </div>
+        <div class="video-card">
+          <div class="video-card-wrapper">
+            <iframe src="https://www.youtube.com/embed/wMU-E0Fzg5A" 
+                    title="Amor Mío - Mario Pulido Gómez"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-card-title">Amor Mío</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-inner">
+      <div class="fade-up">
+        <span class="section-label" style="color: rgba(212,160,23,0.6);">Contacto</span>
+        <h2 class="section-title">Contrata a Mario para tu evento</h2>
+        <p class="section-subtitle">
+          ¿Buscas un show inolvidable? Mario Pulido Gómez está disponible para 
+          todo tipo de eventos: teatros, bodas, galas, fiestas privadas y más.
+        </p>
+      </div>
+      <div class="contact-links fade-up">
+        <a href="tel:+573233604945" class="contact-card">
+          <span class="contact-card-icon">📞</span>
+          <div>
+            <div class="contact-card-label">Teléfono</div>
+            <div class="contact-card-value">+57 323 360 4945</div>
+          </div>
+        </a>
+        <a href="mailto:juanpablopulidogonzalez@gmail.com" class="contact-card">
+          <span class="contact-card-icon">✉</span>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">juanpablopulidogonzalez@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@MarioPulidoG%C3%B3mez" class="contact-card" target="_blank" rel="noopener">
+          <span class="contact-card-icon">▶</span>
+          <div>
+            <div class="contact-card-label">YouTube</div>
+            <div class="contact-card-value">Canal de Mario</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2026 Mario Pulido Gómez &middot; Cantante e Imitador de Raphael &middot; Hecho con pasión
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ===== LIGHTBOX =====
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+      <div class="lightbox-image-wrapper">
+        <img src="" alt="" />
+        <div class="lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxImg.alt = caption || '';
+      lightboxCaption.textContent = caption || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.gallery-card').forEach(card => {
+      const img = card.querySelector('img');
+      if (!img) return;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const label = card.querySelector('.gallery-card-label');
+        openLightbox(img.src, label ? label.textContent : '');
+      });
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
